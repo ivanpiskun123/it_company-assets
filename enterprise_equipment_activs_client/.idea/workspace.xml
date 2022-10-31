@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="dc6193fb-a74c-4aa7-bd10-449144147061" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar/UserNavbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar/UserNavbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Users.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Users.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
