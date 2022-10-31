@@ -125,9 +125,6 @@ const UserNavbar = ({ signOut, setIsAdmin }) => {
                                                 <MDBNavLink to="#" style={{color: "black"}}  className="mr-4 ml-4" >Новая</MDBNavLink>
                                           </MDBBtn>
                                             </MDBNavItem >
-                                        <MDBNavItem>
-                                          <MDBNavLink style={{color: "black"}} to={`/bids_list/`+currentUserId} >Все заявки</MDBNavLink>
-                                        </MDBNavItem>
                                       </MDBNavbarNav>
                                     </MDBCollapse>
 

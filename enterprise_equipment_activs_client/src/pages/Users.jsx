@@ -54,7 +54,7 @@ const Users = ()=>{
               }
 
               return {avatar: <img   src={ u.attributes.avatar ? `http://localhost:3000${u.attributes.avatar}` : noAvatarImage }
-                className=" z-depth-5 rounded userListImg"   alt="" /> ,
+                className="rounded userListImg"   alt="" /> ,
                 fullName: `${u.attributes.second_name} ${u.attributes.first_name}`,
                 position: u.attributes.position_name,
                 durationInCompany: `${ Math.round(u.attributes.months_in_company/12*10)/10 } лет`,
