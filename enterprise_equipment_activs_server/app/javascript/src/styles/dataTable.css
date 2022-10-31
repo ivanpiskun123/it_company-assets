@@ -1,0 +1,24 @@
+
+ td, th {
+    text-align: center;
+     vertical-align: middle;
+}
+.table td, .table th {
+  vertical-align: middle !important;
+    text-align: center !important;
+}
+table td {
+  font-size: 18 !important;
+  font-weight: 300 !important;
+  width: 130% !important;
+}
+
+
+li.mdb-rating {
+  pointer-events: none;
+}
+
+img.userListImg{
+  width: 170px !important;
+height: auto !important;
+}
