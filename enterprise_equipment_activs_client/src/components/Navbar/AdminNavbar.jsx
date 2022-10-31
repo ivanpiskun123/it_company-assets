@@ -47,7 +47,6 @@ const AdminNavbar = ({signOut, isAdmin}) => {
                 <MDBNavItem>
                     <MDBNavLink className="black-text" to="/bids_list" >
                     Заявки
-                    <Badge bg={ openedBidsCount ? "danger" : "success"} className="ml-2" >{openedBidsCount}</Badge>
                     </MDBNavLink>
                 </MDBNavItem>
             </MDBCollapse>
@@ -60,10 +59,6 @@ const AdminNavbar = ({signOut, isAdmin}) => {
 
         </MDBNavbarNav>
         <MDBNavbarNav right>
-
-        <MDBNavLink className="yellow-text ml-3" to="/statistics" >
-            <MDBIcon icon="chart-bar" size="2x" className=" mr-3" style={{ color: '#004D40'}} />
-        </MDBNavLink>
 
         <a href="http://localhost:3000/admin/" target="_blank" rel="noopener" className="black-text ml-3 mt-2">
             <MDBIcon icon="cogs" size="2x" className=" mr-3" style={{ color: '#004D40'}} />

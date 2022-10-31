@@ -67,31 +67,15 @@ const Units = (props)=> {
         </MDBCol>
       :
         <MDBRow>
-      <MDBCol md="9">
+      <MDBCol md="12">
             <MDBContainer>
                       <MDBRow>
-                        <UnitsFilter user_id={user_id} filter={filter} setFilter={setFilter} setFlagUnits={setFlagUnits} flagUnits={flagUnits} />
                         <UnitsList units={sortedAndSearchedUnits}  />
                       </MDBRow>
             </MDBContainer>
           </MDBCol>
 
-          <MDBCol md="3">
 
-            <div className="sticky">
-            {user_id ?
-              null
-              :
-                <>
-              <h3 className="text-center mb-2">Офисное / Индивидуальное оборудование</h3>
-              <UnitsChartOwn units={units} />
-                </>
-            }
-
-              <h3 className="text-center mt-5">Рабочее / Сломанное оборудование</h3>
-              <UnitsChartBreakedRight units={units} />
-            </div>
-            </MDBCol>
 
         </MDBRow>
 

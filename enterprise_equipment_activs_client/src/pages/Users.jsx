@@ -35,7 +35,7 @@ const Users = ()=>{
           let bidsUsersDataRow = {labels: [], datasets: [ {data: []} ] }
           let data = {
             columns: [
-              { label: 'Аватар', field: 'avatar', sort: 'asc',  width: 590 },
+              { label: 'Аватар', field: 'avatar', sort: 'asc',  width: 390 },
               { label: 'Полное имя  ', field: 'fullName', sort: 'asc', width: 400 },
               { label: 'Должность', field: 'position', sort: 'asc', width: 270 },
               { label: 'Время в компании', field: 'durationInCompany', sort: 'asc', width: 200 },
@@ -54,7 +54,7 @@ const Users = ()=>{
               }
 
               return {avatar: <img   src={ u.attributes.avatar ? `http://localhost:3000${u.attributes.avatar}` : noAvatarImage }
-                className=" z-depth-5 rounded userListImg"   alt="" /> ,
+                className=" rounded userListImg"   alt="" /> ,
                 fullName: `${u.attributes.second_name} ${u.attributes.first_name}`,
                 position: u.attributes.position_name,
                 durationInCompany: `${ Math.round(u.attributes.months_in_company/12*10)/10 } лет`,
@@ -99,7 +99,7 @@ const Users = ()=>{
             </MDBCol>
           :
             <MDBRow>
-          <MDBCol md="8">
+          <MDBCol md="12">
             <MDBDataTable
             autoWidth
               fixed
@@ -109,13 +109,7 @@ const Users = ()=>{
 
               </MDBCol>
 
-              <MDBCol md="4">
 
-                <div className="sticky">
-                <h3 className="text-center">Кол-во открытых заявок по пользователям</h3>
-                  <Doughnut data={bidsByUsersData} options={{ responsive: true }} />
-                </div>
-                </MDBCol>
 
             </MDBRow>
 

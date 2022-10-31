@@ -68,24 +68,14 @@ const Bids = (props) => {
             </MDBCol>
           :
             <MDBRow>
-          <MDBCol md="8">
+          <MDBCol md="12">
                 <MDBContainer>
                           <MDBRow>
-                            <BidsFilter filter={filter} setFilter={setFilter} />
+
                             <BidsList user_id={user_id} bids={sortedAndSearchedBids} setFlagBids={setFlagBids} flagBids={flagBids} />
                           </MDBRow>
                 </MDBContainer>
               </MDBCol>
-
-              <MDBCol md="4">
-
-                <div className="sticky">
-                    <h4 className="text-center mb-2">Открытые срочные / открытые несрочные заявки</h4>
-                    <BidsChartStatus bids={bids} />
-                    <h3 className="text-center mt-5">Оборудование открытых заявок</h3>
-                    <BidsChartNom bids={bids} />
-                </div>
-                </MDBCol>
 
             </MDBRow>
 
