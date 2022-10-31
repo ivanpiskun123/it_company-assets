@@ -24,7 +24,7 @@ default: &default
 
 development:
   <<: *default
-  database: train_react_development
+  database: enterprise_equipment_activs_dev_db
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

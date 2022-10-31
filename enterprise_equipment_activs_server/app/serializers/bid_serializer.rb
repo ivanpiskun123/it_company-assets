@@ -52,4 +52,8 @@ class BidSerializer
     object.user.rating
   end
 
+  attribute :user_grade do |object|
+    object.user.grade_name
+  end
+
 end

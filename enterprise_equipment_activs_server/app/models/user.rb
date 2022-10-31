@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
     include Devise::JWT::RevocationStrategies::JTIMatcher
@@ -16,6 +16,7 @@ class User < ApplicationRecord
   after_initialize :init
 
   belongs_to :position
+  belongs_to :grade
   has_many :units
   has_many :bids
 
@@ -41,6 +42,19 @@ class User < ApplicationRecord
 
   def opened_bids_count
     self.bids.where(unit: nil).count
+  end
+
+  def grade_name
+    case grade.grade
+    when 1
+      "Junior"
+    when 2
+      "Middle"
+    when 3
+      "Senior"
+    else
+      "Expert level #{grade.grade-3}"
+    end
   end
 
   def bids_count

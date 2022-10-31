@@ -18,4 +18,5 @@ class UserShortSerializer
   attribute :rating, &:rating
   attribute :bids_count, &:bids_count
   attribute :months_in_company, &:months_in_company
+  attribute :grade, &:grade_name
 end

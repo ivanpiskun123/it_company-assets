@@ -8,18 +8,24 @@
 
 # POSITIONS
 Position.create!([
-  {name: "Python разработчик"},
-  {name: "Java разработчик"},
-  {name: "Ruby разработчик"},
-  {name: "С# разработчик"},
-  {name: "JavaScript разработчик"},
+  {name: "Frontend-разработчик"},
+  {name: "Backend-разработчик"},
+  {name: "Дизайн-азработчик"},
+  {name: "Проектный менеджер"},
+  {name: "Продукт-owner"},
   {name: "HR-менеджер"},
   {name: "Главный рекрутер"},
   {name: "Руководитель отдела разработки"},
-  {name: "Директор"},
-  {name: "Начальник КО"}
+  {name: "Глава департамента"},
+  {name: "Администратор офиса"}
   ])
 
+Grade.create!([
+  {grade: 1},
+  {grade: 2},
+  {grade: 3},
+  {grade: 4}
+  ])
 
 # NOMINATIONS
 names = ["Мышь","Клавиатура","Монитор","Компьютер","Ноутбук",
@@ -38,59 +44,76 @@ def rand_work_exp
   rand(0.0 .. 5.3).round(1)
 end
 
-path_to_avatars = "#{Rails.root}/app/assets/images/avatars/"
-imgs = ["0.jpg", "1.jpg","2.jpg","3.jpg","4.jpg"]
+def grade_from_exp(exp)
+  grade =
+  case exp
+  when 0..1.5
+    1
+  when 1.5..3
+    2
+  when 3..4.5
+    3
+  else
+    4
+  end
+  g = Grade.find_by(grade: grade)
+  g
+end
 
+path_to_avatars = "#{Rails.root}/app/assets/images/avatars/"
+imgs = ["0.jpeg", "1.jpeg","2.jpeg","3.jpeg","4.jpeg"]
+
+exp = rand_work_exp
   u = User.create!(
-        {first_name: "Ирина", second_name: "Василенко", male: false, phone_number: "+375295689556",
-            position_id: 6, email: "user1@gmail.com", work_experience: rand_work_exp,
+        {first_name: "Анна", second_name: "Янковская", male: false, phone_number: "+375295689556",
+            position_id: 6, email: "user1@gmail.com", work_experience: exp, grade: grade_from_exp(exp),
              password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid })
     u.created_at = Time.now-rand(13..15).month
     u.avatar.attach(io: File.open(path_to_avatars+imgs[0]), filename: imgs[0] ,content_type: 'image/jpeg'  )
     u.save
 
-
-  u = User.create!({first_name: "Владимир", second_name: "Бойко", male: true, is_admin: true, phone_number: "+375295789859",
-              position: Position.last, email: "admin123@gmail.com", work_experience: rand_work_exp,
+exp = rand_work_exp
+  u = User.create!({first_name: "Виктор", second_name: "Савкин", male: true, is_admin: true, phone_number: "+375295789859",
+              position: Position.last, email: "admin123@gmail.com", work_experience: exp, grade: grade_from_exp(exp),
                password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid})
     u.created_at = Time.now-rand(13..15).month
     u.avatar.attach(io: File.open(path_to_avatars+imgs[1]), filename: imgs[1],content_type: 'image/jpeg'  )
     u.save
 
-
+exp = rand_work_exp
   u = User.create!(
-    {first_name: "Евгений", second_name: "Новенький", male: true, phone_number: "+375337899511",
-position_id: 3, email: "user2@gmail.com", work_experience: rand_work_exp,
-       password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
+    {first_name: "Николай", second_name: "Ятсевич", male: true, phone_number: "+375337899511",
+position_id: 3, email: "user2@gmail.com", work_experience: exp, grade: grade_from_exp(exp),
+       password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid }
   )
   u.created_at = Time.now-rand(13..15).month
     u.avatar.attach(io: File.open(path_to_avatars+imgs[2]), filename: imgs[2],content_type: 'image/jpeg'  )
   u.save
 
-
+exp = rand_work_exp
   u = User.create!(
-    {first_name: "Аркадий", second_name: "Беларченко", male: true, phone_number: "+375337897544",
-position_id: 2, email: "user3@gmail.com", work_experience: rand_work_exp,
+    {first_name: "Иван", second_name: "Монтик", male: true, phone_number: "+375337897544",
+position_id: 2, email: "user3@gmail.com",work_experience: exp, grade: grade_from_exp(exp),
        password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
   )
   u.created_at = Time.now-rand(13..15).month
         u.avatar.attach(io: File.open(path_to_avatars+imgs[3]), filename: imgs[3] ,content_type: 'image/jpeg' )
       u.save
 
-
+exp = rand_work_exp
   u = User.create!(
-    {first_name: "Анастасия", second_name: "Немцова", male: false, phone_number: "+375447891122",
-     position_id: 4, email: "user4@gmail.com", work_experience: rand_work_exp,
+    {first_name: "Юлия", second_name: "Лаппо", male: false, phone_number: "+375447891122",
+     position_id: 4, email: "user4@gmail.com", work_experience: exp, grade: grade_from_exp(exp),
       password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
   )
   u.created_at = Time.now-rand(13..15).month
         u.avatar.attach(io: File.open(path_to_avatars+imgs[4]), filename: imgs[4],content_type: 'image/jpeg'  )
       u.save
 
-
+exp = rand_work_exp
   u = User.create!(
-      {first_name: "Тимур", second_name: "Босак", male: true, phone_number: "+375447894568",
-       position_id: 5, email: "user5@gmail.com", work_experience: rand_work_exp,
+      {first_name: "Егор", second_name: "Воробьев", male: true, phone_number: "+375447894568",
+       position_id: 5, email: "user5@gmail.com", work_experience: exp, grade: grade_from_exp(exp),
         password: "admin123", password_confirmation: "admin123", jti: SecureRandom.uuid}
       )
   u.created_at = Time.now-rand(13..15).month
